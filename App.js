@@ -26,36 +26,12 @@ export default class App extends Component<Props> {
     };
   }
 
-  onChange = (value) => {
-    console.warn(`El switch cambiará a ${value}`)
-    this.setState({switchValue: value})
-  }
-
-  onPressLearnMore = () => {
-    Alert.alert('Diana', this.state.text)
-  }
-
-  updateText = (text) => {
-    this.setState({text})
-  }
-
   render() {
     return (
       <View style={styles.container}>
-        <TextInput
-          onChangeText={(text) => this.updateText(text)}
-          value={this.state.text}
-        />
-        <Switch
-          onValueChange = {() => this.onChange(!this.state.switchValue)}
-          value = {this.state.switchValue}
-        />
-        <Button
-          onPress = {this.onPressLearnMore}
-          title="Learn More"
-          color="#841584"
-          accessibilityLabel= "Learn more about this purple button"
-        />
+        <View style={[styles.box, styles.red]}/>
+        <View style={[styles.box, styles.green]}/>
+        <View style={[styles.box, styles.blue]}/>
       </View>
     );
   }
