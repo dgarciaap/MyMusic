@@ -44,14 +44,18 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
   },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
+  box: {
+    width: 100,
+    height: 100,
+    backgroundColor: 'black'
   },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
+  red: {
+    backgroundColor: "red"
   },
+  green: {
+    backgroundColor: "green"
+  },
+  blue: {
+    backgroundColor: "blue"
+  }
 });
