@@ -40,19 +40,20 @@ export default class App extends Component<Props> {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    flexDirection: 'row',
     backgroundColor: '#F5FCFF',
+    flexWrap: 'wrap'
   },
   box: {
-    width: 100,
-    height: 100,
+    width: 150,
+    height: 200,
     backgroundColor: 'black'
   },
   red: {
     backgroundColor: "red"
   },
   green: {
+    flex:1,
     backgroundColor: "green"
   },
   blue: {
