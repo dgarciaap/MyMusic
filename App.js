@@ -7,7 +7,7 @@
  */
 
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View, Button, Switch, TextInput, Alert} from 'react-native';
+import {Platform, StyleSheet, Text, View, Button, Switch, TextInput, Alert, Image} from 'react-native';
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
@@ -22,16 +22,44 @@ export default class App extends Component<Props> {
     super(props);
     this.state = {
       switchValue: false,
-      text: 'Useless Placeholder'
+      username: 'Username',
+      password: 'Password'
     };
+  }
+
+  onChangeText(key, value) {
+    this.setState({
+      [key]: value
+    })
+  }
+
+  printMessages = () => {
+    console.warn(this.state.username)
+    console.warn(this.state.password)
   }
 
   render() {
     return (
       <View style={styles.container}>
-        <View style={[styles.box, styles.red]}/>
-        <View style={[styles.box, styles.green]}/>
-        <View style={[styles.box, styles.blue]}/>
+        <Image
+          style={{width: 100, height: 100, margin: 20}}
+          source={{url: 'https://facebook.github.io/react/logo-og.png'}}
+        />
+        <TextInput
+          style={{ height: 40, width: 100, borderColor: 'gray', borderWidth: 1, margin: 10 }}
+          onChangeText={text => this.onChangeText('username', text)}
+          value={this.state.username}
+        />
+        <TextInput
+          style={{ height: 40, width: 100, borderColor: 'gray', borderWidth: 1, margin: 10 }}
+          onChangeText={text => this.onChangeText('password', text)}
+          value={this.state.password}
+          secureTextEntry
+        />
+        <Button
+          title="Log in"
+          onPress={this.printMessages}
+        />
       </View>
     );
   }
@@ -40,23 +68,8 @@ export default class App extends Component<Props> {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    flexDirection: 'row',
-    backgroundColor: '#F5FCFF',
-    flexWrap: 'wrap'
-  },
-  box: {
-    width: 150,
-    height: 200,
-    backgroundColor: 'black'
-  },
-  red: {
-    backgroundColor: "red"
-  },
-  green: {
-    flex:1,
-    backgroundColor: "green"
-  },
-  blue: {
-    backgroundColor: "blue"
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#F5FCFF'
   }
 });
